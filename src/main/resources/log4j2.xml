@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="MyAppLogs" fileName="logs/my-app.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.codinoverse" level="info" additivity="false">
+            <AppenderRef ref="MyAppLogs"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.apache.spark" level="off" additivity="false"/>
+        <Root level="off">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
